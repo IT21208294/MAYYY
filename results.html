@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Optimized Route</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Optimized Route</h1>
+    
+    <h3>Total Distance: {{ response.optimized_distance }} km</h3>
+    <h3>Google Maps URL:</h3>
+    <a href="{{ response.google_maps_url }}" target="_blank">{{ response.google_maps_url }}</a>
+    
+    <h3>Route:</h3>
+    <ul>
+        {% for idx in response.optimized_route %}
+        {% set current_date = response.current_date %}
+        {% set sequence_number = "%03d"|format(idx + 1) %}
+        {% set current_date_sequence_number = current_date + '-' + sequence_number %}
+            <li>{{ current_date_sequence_number }} : {{ response.customer_names[idx] }} : {{ response.customer_numbers[idx] }} : {{ response.location_names[idx] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
