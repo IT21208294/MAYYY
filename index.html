@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shortest Path Route</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Shortest Path Route</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="file">Upload CSV file:</label>
+        <input type="file" id="file" name="file" required><br><br>
+        
+        <label for="current_latitude">Your current latitude:</label>
+        <input type="number" step="0.000001" id="current_latitude" name="current_latitude" required><br><br>
+        
+        <label for="current_longitude">Your current longitude:</label>
+        <input type="number" step="0.000001" id="current_longitude" name="current_longitude" required><br><br>
+        
+        <input type="submit" value="Calculate Shortest Path">
+    </form>
+</body>
+</html>
